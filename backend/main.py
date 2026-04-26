@@ -2,11 +2,10 @@
 Smart Supply Sourcing China — FastAPI Backend
 Deployed on Render (https://render.com)
 
-Entry point: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+Entry point: uvicorn main:app --host 0.0.0.0 --port $PORT
 """
 
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Smart Supply Sourcing China API",
@@ -14,13 +13,10 @@ app = FastAPI(
     version="1.0.0",
 )
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Tighten in production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
+@app.get("/")
+def root():
+    return {"message": "Smart Supply API is running"}
 
 
 @app.get("/health")
