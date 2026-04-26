@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'auth_service.dart';
 
 class ApiClient {
-  static const String baseUrl = 'https://your-render-url.onrender.com'; // Replace with your actual Render URL
+  static const String baseUrl = 'https://smartsupplymobile.onrender.com';
   final AuthService _authService = AuthService();
 
   // Make authenticated GET request
