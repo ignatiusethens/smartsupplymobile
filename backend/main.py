@@ -25,4 +25,4 @@ app.add_middleware(
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "service": "smart-supply-api"}
+    return {"status": "ok", "service": "smart-supply-api", "version": "1.0.1"}
