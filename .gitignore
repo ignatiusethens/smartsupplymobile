@@ -1,0 +1,41 @@
+# ── Python / Backend ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.env
+*.env
+backend/.env
+
+# ── Flutter / Dart ────────────────────────────────────────────────────────────
+smart_supply/.dart_tool/
+smart_supply/build/
+smart_supply/.flutter-plugins
+smart_supply/.flutter-plugins-dependencies
+smart_supply/.packages
+smart_supply/pubspec.lock
+*.iml
+*.ipr
+*.iws
+.idea/
+*.class
+
+# ── Firebase ──────────────────────────────────────────────────────────────────
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
+**/firebase_options.dart
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Kiro ──────────────────────────────────────────────────────────────────────
+.kiro/
