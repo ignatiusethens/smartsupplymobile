@@ -21,10 +21,10 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 1),
     )..repeat();
 
-    // Navigate to home after 3 seconds (auth bypassed for preview)
+    // Navigate to auth wrapper after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/auth');
       }
     });
   }

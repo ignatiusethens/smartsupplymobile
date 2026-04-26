@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'features/splash/splash_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/requests/new_request_step1_screen.dart';
@@ -19,10 +20,15 @@ import 'features/orders/order_tracking_screen.dart';
 import 'features/account/account_screen.dart';
 import 'features/auth/signup_screen.dart';
 import 'features/auth/login_screen.dart';
+import 'widgets/auth_wrapper.dart';
 import 'core/theme/app_colors.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase
+  await Firebase.initializeApp();
+  
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -58,6 +64,7 @@ class SmartSupplyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
+        '/auth': (context) => const AuthWrapper(),
         '/signup': (context) => const SignupScreen(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
