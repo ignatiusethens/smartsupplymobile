@@ -1,24 +1,30 @@
 """
-Smart Supply Sourcing China — FastAPI Backend
+Smart Supply Sourcing China — Flask Backend
 Deployed on Render (https://render.com)
 
-Entry point: uvicorn main:app --host 0.0.0.0 --port $PORT
+Entry point: gunicorn main:app --bind 0.0.0.0:$PORT
 """
 
-from fastapi import FastAPI
+from flask import Flask, jsonify
+import os
 
-app = FastAPI(
-    title="Smart Supply Sourcing China API",
-    description="Back-office API for order lifecycle, quotes, M-Pesa payments, and admin operations.",
-    version="1.0.0",
-)
+app = Flask(__name__)
 
 
-@app.get("/")
+@app.route("/")
 def root():
-    return {"message": "Smart Supply API is running"}
+    return jsonify({"message": "Smart Supply API is running"})
 
 
-@app.get("/health")
+@app.route("/health")
 def health_check():
-    return {"status": "ok", "service": "smart-supply-api", "version": "1.0.1"}
+    return jsonify({
+        "status": "ok", 
+        "service": "smart-supply-api", 
+        "version": "1.0.1"
+    })
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
